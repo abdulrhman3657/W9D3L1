@@ -7,6 +7,7 @@ import {
   deleteItem,
 } from "../controllers/item.controller"
 
+// item router
 const router = Router({ mergeParams: true })
 
 router.route("/").get(getListItems).post(createItem)

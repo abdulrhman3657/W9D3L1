@@ -5,3 +5,5 @@ export interface List {
   createdAt: Date;
   updatedAt: Date;
 }
+
+// set the list types

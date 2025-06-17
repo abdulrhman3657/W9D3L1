@@ -7,3 +7,5 @@ export interface Item {
   createdAt: Date;
   updatedAt: Date;
 }
+
+// set the item types
