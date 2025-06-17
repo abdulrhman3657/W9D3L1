@@ -94,6 +94,7 @@ export const updateList = async (
   res: Response
 ): Promise<void> => {
   try {
+    //
     const list = listStore.update(req.params.id, req.body)
     if (!list) {
       res.status(NOT_FOUND).json({
@@ -121,6 +122,8 @@ export const deleteList = async (
 ): Promise<void> => {
   try {
     const deleted = listStore.delete(req.params.id)
+
+    // if the list is not found
     if (!deleted) {
       res.status(NOT_FOUND).json({
         success: false,
