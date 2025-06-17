@@ -3,6 +3,8 @@ import { generateId } from "../utils/generate-id";
 
 const lists: Map<string, List> = new Map();
 
+// crud list data using map
+
 const create = (data: Omit<List, 'id' | 'createdAt' | 'updatedAt'>): List => {
   const id = generateId();
   const now = new Date();
