@@ -58,6 +58,7 @@ export const getListItems = async (req: Request, res: Response): Promise<void> =
     }
 
     const items = itemStore.findByListId(listId);
+
     res.status(OK).json({
       success: true,
       data: items,
@@ -84,6 +85,8 @@ export const getItem = async (req: Request, res: Response): Promise<void> => {
     }
 
     const item = itemStore.findById(id);
+
+    // if the item is not found or list id does not match the reques list id
     if (!item || item.listId !== listId) {
       res.status(NOT_FOUND).json({
         success: false,
