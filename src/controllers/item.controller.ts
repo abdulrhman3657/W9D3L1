@@ -18,6 +18,7 @@ export const createItem = async (req: Request, res: Response): Promise<void> => 
       return;
     }
 
+    // get the list to add the item
     const list = listStore.findById(listId);
     if (!list) {
       res.status(NOT_FOUND).json({
@@ -43,6 +44,7 @@ export const createItem = async (req: Request, res: Response): Promise<void> => 
   }
 };
 
+// get all items from a list using list id
 export const getListItems = async (req: Request, res: Response): Promise<void> => {
   try {
     const { listId } = req.params;
