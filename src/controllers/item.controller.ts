@@ -70,6 +70,7 @@ export const getListItems = async (req: Request, res: Response): Promise<void> =
   }
 };
 
+// get one item using item id and list id
 export const getItem = async (req: Request, res: Response): Promise<void> => {
   try {
     const { listId, id } = req.params;
