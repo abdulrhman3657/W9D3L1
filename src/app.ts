@@ -31,8 +31,9 @@ app.use(express.json());
 // parse URL-encoded form data in req.body
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
+// list router
 app.use('/api/lists', listRoutes);
+// item router
 app.use('/api/lists/:listId/items', itemRoutes);
 
 // Basic route

@@ -7,6 +7,7 @@ export const createItem = async (req: Request, res: Response): Promise<void> => 
   try {
     // get listId from url
     const { listId } = req.params;
+    // get the data from the request body
     const { title, description = '', completed = false } = req.body;
 
     if (!title) {
@@ -27,10 +28,13 @@ export const createItem = async (req: Request, res: Response): Promise<void> => 
     }
 
     const item = itemStore.create({ listId, title, description, completed });
+    
+    // return the created item as response
     res.status(CREATED).json({
       success: true,
       data: item,
     });
+
   } catch (error) {
     res.status(BAD_REQUEST).json({
       success: false,
