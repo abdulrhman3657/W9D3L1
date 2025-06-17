@@ -1,0 +1,240 @@
+{
+	"info": {
+		"_postman_id": "random-uuid",
+		"name": "02-REST",
+		"description": "REST API collection for the Todo application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Lists",
+			"item": [
+				{
+					"name": "Create List",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"My Todo List\",\n    \"description\": \"A list of tasks to complete\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/lists",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists"]
+						},
+						"description": "Create a new todo list"
+					}
+				},
+				{
+					"name": "Get All Lists",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:3000/api/lists",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists"]
+						},
+						"description": "Get all todo lists"
+					}
+				},
+				{
+					"name": "Get List by ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:id",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "list-id-here"
+								}
+							]
+						},
+						"description": "Get a specific todo list by ID"
+					}
+				},
+				{
+					"name": "Update List",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated List Title\",\n    \"description\": \"Updated description\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:id",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "list-id-here"
+								}
+							]
+						},
+						"description": "Update a todo list"
+					}
+				},
+				{
+					"name": "Delete List",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:id",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "list-id-here"
+								}
+							]
+						},
+						"description": "Delete a todo list and all its items"
+					}
+				}
+			]
+		},
+		{
+			"name": "Items",
+			"item": [
+				{
+					"name": "Create Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"New Todo Item\",\n    \"description\": \"Item description\",\n    \"completed\": false\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:listId/items",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":listId", "items"],
+							"variable": [
+								{
+									"key": "listId",
+									"value": "list-id-here"
+								}
+							]
+						},
+						"description": "Create a new item in a todo list"
+					}
+				},
+				{
+					"name": "Get List Items",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:listId/items",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":listId", "items"],
+							"variable": [
+								{
+									"key": "listId",
+									"value": "list-id-here"
+								}
+							]
+						},
+						"description": "Get all items in a todo list"
+					}
+				},
+				{
+					"name": "Get Item",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:listId/items/:id",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":listId", "items", ":id"],
+							"variable": [
+								{
+									"key": "listId",
+									"value": "list-id-here"
+								},
+								{
+									"key": "id",
+									"value": "item-id-here"
+								}
+							]
+						},
+						"description": "Get a specific item from a todo list"
+					}
+				},
+				{
+					"name": "Update Item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Item Title\",\n    \"description\": \"Updated item description\",\n    \"completed\": true\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:listId/items/:id",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":listId", "items", ":id"],
+							"variable": [
+								{
+									"key": "listId",
+									"value": "list-id-here"
+								},
+								{
+									"key": "id",
+									"value": "item-id-here"
+								}
+							]
+						},
+						"description": "Update an item in a todo list"
+					}
+				},
+				{
+					"name": "Delete Item",
+					"request": {
+						"method": "DELETE",
+						"url": {
+							"raw": "http://localhost:3000/api/lists/:listId/items/:id",
+							"host": ["http://localhost:3000"],
+							"path": ["api", "lists", ":listId", "items", ":id"],
+							"variable": [
+								{
+									"key": "listId",
+									"value": "list-id-here"
+								},
+								{
+									"key": "id",
+									"value": "item-id-here"
+								}
+							]
+						},
+						"description": "Delete an item from a todo list"
+					}
+				}
+			]
+		}
+	]
+} 
