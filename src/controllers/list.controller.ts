@@ -135,6 +135,7 @@ export const deleteList = async (
     // Delete all items in the list
     itemStore.deleteByListId(req.params.id)
 
+    // successfully deleted
     res.status(OK).json({
       success: true,
       data: {},
